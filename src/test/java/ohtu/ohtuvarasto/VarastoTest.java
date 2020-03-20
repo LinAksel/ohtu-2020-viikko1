@@ -80,7 +80,7 @@ public class VarastoTest {
 
     @Test
     public void tuplaKonstruktoriSaldoIsompiTilavuutta() {
-        varasto = new Varasto(7,8);
+        varasto = new Varasto(7, 8);
         assertEquals(7, varasto.getTilavuus(), vertailuTarkkuus);
         assertEquals(7, varasto.getSaldo(), vertailuTarkkuus);
     }
@@ -89,12 +89,12 @@ public class VarastoTest {
     public void liikaOtto() {
         double maara = varasto.getSaldo();
         double tilavuus = varasto.getTilavuus();
-        assertEquals(maara, varasto.otaVarastosta(tilavuus+1), vertailuTarkkuus);
+        assertEquals(maara, varasto.otaVarastosta(tilavuus + 1), vertailuTarkkuus);
     }
 
     @Test
     public void tuplaKonstruktoriSaldoVaara() {
-        varasto = new Varasto(7,-1);
+        varasto = new Varasto(7, -1);
         assertEquals(7, varasto.getTilavuus(), vertailuTarkkuus);
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
     }
@@ -102,13 +102,13 @@ public class VarastoTest {
     @Test
     public void liikLisays() {
         double tilavuus = varasto.getTilavuus();
-        varasto.lisaaVarastoon(tilavuus+3);
+        varasto.lisaaVarastoon(tilavuus + 3);
         assertEquals(tilavuus, varasto.getSaldo(), vertailuTarkkuus);
     }
 
     @Test
     public void tuplaKonstruktoriTilavuusVaara() {
-        varasto = new Varasto(0,7);
+        varasto = new Varasto(0, 7);
         assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
     }
@@ -121,7 +121,7 @@ public class VarastoTest {
 
     @Test
     public void tuplaKonstruktoriSaldoPienempiTilavuutta() {
-        varasto = new Varasto(7,6);
+        varasto = new Varasto(7, 6);
         assertEquals(7, varasto.getTilavuus(), vertailuTarkkuus);
         assertEquals(6, varasto.getSaldo(), vertailuTarkkuus);
     }
