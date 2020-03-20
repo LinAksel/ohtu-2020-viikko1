@@ -124,9 +124,6 @@ public class VarastoTest {
         varasto = new Varasto(7,6);
         assertEquals(7, varasto.getTilavuus(), vertailuTarkkuus);
         assertEquals(6, varasto.getSaldo(), vertailuTarkkuus);
-        String tuloste = "saldo = 6.0, viela tilaa 1.0";
-        String vertailu = varasto.toString();
-        assertEquals(tuloste, vertailu);
     }
 
     @Test
