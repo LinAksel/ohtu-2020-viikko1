@@ -65,4 +65,77 @@ public class VarastoTest {
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
 
+    @Test
+    public void virheTilavuusNolla() {
+        varasto = new Varasto(-1);
+        assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void vaaraLisays() {
+        double vanha = varasto.getSaldo();
+        varasto.lisaaVarastoon(-1);
+        assertEquals(vanha, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void tuplaKonstruktoriSaldoIsompiTilavuutta() {
+        varasto = new Varasto(7,8);
+        assertEquals(7, varasto.getTilavuus(), vertailuTarkkuus);
+        assertEquals(7, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void liikaOtto() {
+        double maara = varasto.getSaldo();
+        double tilavuus = varasto.getTilavuus();
+        assertEquals(maara, varasto.otaVarastosta(tilavuus+1), vertailuTarkkuus);
+    }
+
+    @Test
+    public void tuplaKonstruktoriSaldoVaara() {
+        varasto = new Varasto(7,-1);
+        assertEquals(7, varasto.getTilavuus(), vertailuTarkkuus);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void liikLisays() {
+        double tilavuus = varasto.getTilavuus();
+        varasto.lisaaVarastoon(tilavuus+3);
+        assertEquals(tilavuus, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void tuplaKonstruktoriTilavuusVaara() {
+        varasto = new Varasto(0,7);
+        assertEquals(0, varasto.getTilavuus(), vertailuTarkkuus);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void ottoVaara() {
+        double maara = varasto.getSaldo();
+        assertEquals(maara, varasto.otaVarastosta(-1), vertailuTarkkuus);
+    }
+
+    @Test
+    public void tuplaKonstruktoriSaldoPienempiTilavuutta() {
+        varasto = new Varasto(7,6);
+        assertEquals(7, varasto.getTilavuus(), vertailuTarkkuus);
+        assertEquals(6, varasto.getSaldo(), vertailuTarkkuus);
+        String tuloste = "saldo = 6.0, vielä tilaa 1.0";
+        String vertailu = varasto.toString();
+        assertEquals(tuloste, vertailu);
+    }
+
+    @Test
+    public void tulostus() {
+        double maara = varasto.getSaldo();
+        double tilavuus = varasto.getTilavuus();
+        String tuloste = "saldo = " + maara + ", vielä tilaa " + (tilavuus - maara);
+        String vertailu = varasto.toString();
+        assertEquals(tuloste, vertailu);
+    }
+
 }
