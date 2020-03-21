@@ -3,4 +3,4 @@ plugins:
     enabled: true
     config:
       checkstyle:
-	"checkstyle.xml"
+	file:"checkstyle.xml"
